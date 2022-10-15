@@ -16,16 +16,16 @@ public class DiamondKata
         Console.WriteLine($"Length of the line: {lengthOfTheLine}");
         for (var currentRow = 1; currentRow <= lengthOfTheLine; currentRow++)
         {
-            PrintLine(currentRow, lengthOfTheLine, size);
+            var line = GetLineForIndex(currentRow, lengthOfTheLine, size);
+            Console.WriteLine(line);
         }
     }
 
-    private static void PrintLine(int currentRow, int lengthOfTheLine, int size)
+    public static string GetLineForIndex(int currentRow, int lengthOfTheLine, int size)
     {
         var currentLineCharacter = GetCurrentLineCharacter(currentRow, lengthOfTheLine, size);
         var positionOfCharacter = GetCharacterPosition(currentLineCharacter);
-        var format = BuildLine(size, positionOfCharacter, currentLineCharacter);
-        Console.WriteLine(format);
+        return BuildLine(size, positionOfCharacter, currentLineCharacter);
     }
 
     private static string BuildLine(int size, int positionOfCharacter, char currentLineCharacter)
